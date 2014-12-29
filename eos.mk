@@ -3,7 +3,7 @@ TARGET_SCREEN_HEIGHT := 1440
 TARGET_SCREEN_WIDTH := 2560
 
 # Inherit device configuration
-$(call inherit-product, device/moto/shamu/aosp_shamu.mk)
+$(call inherit-product, device/moto/shamu/full_shamu.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := shamu
