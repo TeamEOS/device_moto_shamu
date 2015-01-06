@@ -1,0 +1,2 @@
+allow kernel tap2wake_dev:file relabelto;
+allow kernel sweep2wake_dev:file relabelto;

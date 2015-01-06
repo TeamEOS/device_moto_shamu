@@ -245,6 +245,12 @@ on boot
     chown media media /sys/devices/c55_ctrl/gpio_core/value
     chown media media /sys/devices/c55_ctrl/gpio_reset/value
 
+    # Gesture wake
+    chmod 0660 /sys/android_touch/doubletap2wake
+    chmod 0660 /sys/android_touch/sweep2wake
+    chown system system /sys/android_touch/doubletap2wake
+    chown system system /sys/android_touch/sweep2wake
+
 # subsystem ramdump collection
 on property:persist.sys.qc.sub.rdump.on=*
     write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
