@@ -17,20 +17,42 @@
 package org.cyanogenmod.hardware;
 
 import org.cyanogenmod.hardware.util.FileUtils;
+import java.io.*;
+
+/*
+ * Dual support TapToWake
+ * 
+ * If Flar2 implementation (Eos ships with it) is present, give priority
+ * Otherwise, fall back to stock implementation
+ * 
+ */
 
 public class TapToWake {
 
-    private static String CONTROL_PATH = "/sys/android_touch/doubletap2wake";
+    private static String FLAR2_PATH = "/sys/android_touch/doubletap2wake";
+    private static String NATIVE_PATH = "/sys/bus/i2c/devices/1-004a/tsp";
 
     public static boolean isSupported() {
-        return true;
+        boolean hasFlar2 = new File(FLAR2_PATH).exists();
+        boolean hasNative = new File(NATIVE_PATH).exists();
+        return hasFlar2 || hasNative;
     }
 
-    public static boolean isEnabled()  {
-        return "1".equals(FileUtils.readOneLine(CONTROL_PATH));
+    public static boolean isEnabled() {
+        if (new File(FLAR2_PATH).exists()) {
+            return "1".equals(FileUtils.readOneLine(FLAR2_PATH));
+        } else if (new File(NATIVE_PATH).exists()) {
+            return "AUTO".equals(FileUtils.readOneLine(NATIVE_PATH));
+        }
+        return false;
     }
 
-    public static boolean setEnabled(boolean state)  {
-        return FileUtils.writeLine(CONTROL_PATH, (state ? "1" : "0"));
+    public static boolean setEnabled(boolean state) {
+        if (new File(FLAR2_PATH).exists()) {
+            return FileUtils.writeLine(FLAR2_PATH, (state ? "1" : "0"));
+        } else if (new File(NATIVE_PATH).exists()) {
+            return FileUtils.writeLine(NATIVE_PATH, (state ? "AUTO" : "OFF"));
+        }
+        return false;
     }
 }
