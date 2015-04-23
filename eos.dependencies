@@ -1,0 +1,12 @@
+[
+  {
+    "remote": "github",
+    "repository": "Rlasalle15/android_kernel_moto_shamu",
+    "target_path": "kernel/moto/shamu",
+    "revision": "lp5.1"
+  },
+  {
+    "repository": "vendor_motorola",
+    "target_path": "vendor/motorola"
+  }
+]
