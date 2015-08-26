@@ -232,8 +232,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
 
 # Include IMSEnabler
-PRODUCT_PACKAGES += \
-    IMSEnabler
+#PRODUCT_PACKAGES += \
+#    IMSEnabler
 
 # WiFi calling
 PRODUCT_PROPERTY_OVERRIDES += \
