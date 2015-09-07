@@ -10,3 +10,5 @@ net_domain(cnd)
 
 # allow cnd the following capability
 allow cnd self:capability { setuid setgid net_raw };
+allow cnd netmgrd:dir search;
+allow cnd netmgrd:file r_file_perms;
