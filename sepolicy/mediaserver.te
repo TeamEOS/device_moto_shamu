@@ -17,3 +17,6 @@ allow mediaserver audio_cutback_data_file:sock_file write;
 
 # TODO b/17015082
 allow mediaserver shell_data_file:dir search;
+
+# Viper audio support
+allow mediaserver mediaserver_tmpfs:file { read write execute };
