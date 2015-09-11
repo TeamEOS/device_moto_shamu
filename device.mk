@@ -95,8 +95,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/moto/shamu/spn-conf.xml:system/etc/spn-conf.xml
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # This device is 560dpi.  However the platform doesn't
 # currently contain all of the bitmaps at 560dpi density so
 # we do this little trick to fall back to the xxhdpi version
@@ -192,15 +190,18 @@ PRODUCT_PACKAGES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    e2fsck
+    e2fsck \
+    fsck.f2fs \
+    mkfs.f2fs \
+    setup_fs
 
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
 
 # for launcher layout
-#PRODUCT_PACKAGES += \
-#    ShamuLayout
+PRODUCT_PACKAGES += \
+    ShamuLayout
 
 PRODUCT_PACKAGES += \
     bdAddrLoader

@@ -142,6 +142,7 @@ BOARD_SEPOLICY_UNION += \
         mpdecision.te \
         netd.te \
         netmgrd.te \
+        wpa.te \
         platform_app.te \
         property.te \
         property_contexts \
@@ -178,6 +179,9 @@ BOARD_HAS_AUDIO_DSP := true
 USE_DEVICE_SPECIFIC_CAMERA:= true
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.shamu
+
+# Time
+BOARD_USES_QC_TIME_SERVICES := true
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
