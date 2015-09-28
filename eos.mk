@@ -13,6 +13,10 @@ $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/moto/shamu/overlay-cm
 
+# Copy Bootanimation
+PRODUCT_COPY_FILES += \
+vendor/eos/prebuilt/common/bootanimation/1080.zip:system/media/bootanimation.zip
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := eos_shamu
 PRODUCT_BRAND := google
