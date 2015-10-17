@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "kernel_moto_shamu",
+    "target_path": "kernel/moto/shamu"
+  },
+  {
+    "repository": "vendor_motorola",
+    "target_path": "vendor/motorola"
+  }
+]
