@@ -209,10 +209,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.msm8084
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    sys.keymaster.loaded=true
-
 PRODUCT_PACKAGES += \
+    librmnetctl \
     libxml2
 
 PRODUCT_PROPERTY_OVERRIDES += \
